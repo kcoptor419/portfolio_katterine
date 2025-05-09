@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Calculo del DNI</title>
+        <style type="text/css">
+            body, input , select{
+                font-size: 22px;
+                font-family: arial;
+                
+            }
+            h2{
+                background-color: rgb(204, 89, 104);
+                text-align: center;
+                color: beige;
+            }
+            div{
+                background-color: rgb(212, 73, 92);
+                text-align: center;
+                padding: 10px ;
+                margin: 10px 0;
+                color: beige;
+            }
+            input[type="number"] {
+                width: 100px;
+                text-align: right;
+                color: white;
+            }
+            button{
+                background-color: crimson;
+            }
+            footer{
+                text-align: center;
+                background-color: rgb(221, 155, 155);
+                width: 100%;
+                height: 200px;
+                color: beige;
+            }
+            footer{
+                font-family: 'Arial Narrow Bold';
+                text-align: center;
+                background-color: rgb(221, 155, 155);
+                width: 100%;
+                height: 350px;
+                color: beige;
+                background-image: url('images/estrellas.gif');
+                display: inline-block;
+            }
+        
+        </style>
+   </head>
+   <body>
+        <h2>Calculo del DNI  </h2>
+        <div>
+            <label>Número DNI:</label>
+            <input type="text" id="fnum">
+            <input type="button" value="Calcular" onclick="calc()">
+            <input type="button" value="Borrar" onclick ="borrar()">
+        </div>
+        <div id="fres"></div>
+
+        <script type="text/javascript">
+            function calc(){
+                    //capturamos valor del campo fnum
+                let num = parseInt(document.getElementById('fnum').value);
+                let modulo = 0; 
+                let cadena = "TRWAGMYFPDXBNJZSQVHLCKE"; 
+                let num_relleno = "";
+                let txt_com = "";              
+
+                //efectuamos los calculos
+                if (num<=0 || isNaN(num)|| num> 99999999) {
+                    txt_com = "Los datos son incorrectos, pruebe de nuevo";  
+                  }
+
+                else {
+
+                //calculamos el módulo de num con 23
+                    modulo = num % 23;
+                    letra = cadena.substr(modulo,1);
+                    num_com = num + letra;
+                //la rellenamos con 0 o a la izquierda
+                    num_relleno = num_com.padStart(9,0);
+
+                    txt_com = "DNI completo: <b>" + num_relleno + "</b>"; 
+                }
+                    dele = num_relleno + num_com;
+                    //mostrar el resultado
+                document.getElementById('fres').innerHTML = txt_com; 
+                document.getElementById("dele").innerHTML = dele;         
+            }
+            function borrar(){
+                document.getElementById('fnum').value="";
+            let borrartodo ="";
+            document.getElementById("fres").innerHTML = borrartodo;
+
+            }
+            
+            
+
+        </script>
+    
+    
+    
+    <footer> <p> !Para consultar la letra de tu DNI y poner el cero delante!!! </p> </footer>  
+    </body>
+
+</html>    

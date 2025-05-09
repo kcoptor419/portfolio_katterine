@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ejercicio_cajas_05</title>
+            <style type="text/css"> 
+                *{
+                    padding: 0;
+                    margin: 0;
+                }
+                body{
+
+                }
+                h2, div{
+                    width: 70%;
+                    padding: 30px;
+                    text-align: center;
+                    margin: 10px auto;
+                    border-radius: 10px;
+                    background-color: beige;
+                }
+                button{
+                    padding: 4px;
+                    width: 50px;
+                }
+            </style>
+    </head>
+    <body>
+        <h2>Bombilla con interruptor</h2>
+       <div>
+            <button id="bot_on" onclick="encender()">On</button>       
+            <img id="imagen" src="images/pic_bulb_off.gif" alt="">
+            <button id="bot_of" onclick="apagar()">Off</button>
+       </div> 
+   
+
+       <script type="text/javascript">
+        //oculata el boton de apagar al cargar la pagina
+            document.getElementById('bot_of').style.visibility="hidden";
+        function encender(){
+            //cambiamos la foto de la bombilla a encendida
+            document.getElementById('imagen').src="imagenes/pic_bulb_on.gif";
+            //hacemos visible el boton de apagar
+            document.getElementById('bot_of').style.visibility= "visible";
+            //hacemos invisible el boton de encender
+            document.getElementById('bot_on').style.visibility= "hidden";
+            }// funcion encender{}
+
+            //document.getElementById('bot_of').style.visibility="hidden";
+            //document.getElementById('bot_on').style.visibility="visible";
+        
+        
+        function apagar(){
+            //cambiamos la foto de la bombilla a apagada
+            document.getElementById('imagen').src="imagenes/pic_bulb_off.gif";
+            //hacemos invisible el boton de apagar
+            document.getElementById('bot_on').style.visibility= "visible";
+            //hacemos visible el boton de encender 
+            document.getElementById('bot_of').style.visibility= "hidden";
+            }// funcion apagar{}
+
+       </script>     
+    </body>
+</html>
